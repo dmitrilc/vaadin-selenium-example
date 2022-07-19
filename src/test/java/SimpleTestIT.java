@@ -39,6 +39,9 @@ public class SimpleTestIT {
 
         //Checks whether the title matches
         assertEquals("Hello World", title);
+
+        //Ends the browser session
+        driver.quit();
     }
 
     @Test
@@ -62,11 +65,21 @@ public class SimpleTestIT {
         //Clicks on the About button
         driver.findElement(By.linkText("About")).click();
 
+        //Wait for new page to load
+        new FluentWait<WebDriver>(driver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofSeconds(1))
+                .ignoring(NoSuchElementException.class)
+                .until(_driver -> driver.getTitle().equals("About"));
+
         //Gets the current URL
         var url = driver.getCurrentUrl();
 
         //Checks whether the url matches
         assertEquals("http://localhost:8080/about", url);
+
+        //Ends the browser session
+        driver.quit();
     }
 
     @Test
@@ -163,5 +176,8 @@ public class SimpleTestIT {
         assertEquals(phone, phoneCell.getText());
         assertEquals(dob.toString(), dobCell.getText());
         assertEquals(occupation, occupationCell.getText());
+
+        //Ends the browser session
+        driver.quit();
     }
 }
