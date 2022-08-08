@@ -90,6 +90,9 @@ public class SimpleTestIT {
         //Use this ChromeDriver to interact with Chrome
         var driver = new ChromeDriver();
 
+        //Maximizes the screen
+        driver.manage().window().maximize();
+
         //Loads the page
         driver.get("http://localhost:8080/master-detail");
 
