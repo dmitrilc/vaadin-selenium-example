@@ -17,7 +17,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 public class SimpleTestIT {
 
     @Test
-    public void checkTitle() {
+    public void checkPageLoad() {
         //Set up the web driver
         WebDriverManager.chromedriver().setup();
 
@@ -32,11 +32,11 @@ public class SimpleTestIT {
             new WebDriverWait(driver, ofSeconds(30), ofSeconds(1))
                     .until(titleIs("Hello World"));
 
-            //Gets the title now that the compiled html resources have loaded
-            var title = driver.getTitle();
+            //Get the Say Hello button
+            var button = driver.findElement(By.xpath("//vaadin-button[contains(.,'Say hello')]"));
 
-            //Checks whether the title matches
-            assertEquals("Hello World", title);
+            //Check the content of the button
+            assertEquals(button.getText(), "Say hello");
         } finally {
             //Ends the browser session
             driver.quit();
