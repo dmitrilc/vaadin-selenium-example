@@ -16,9 +16,10 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  *
  */
 @SpringBootApplication
-@Theme(value = "vaadinseleniumguide")
-@PWA(name = "Vaadin Selenium Guide", shortName = "Vaadin Selenium Guide", offlineResources = {})
+@Theme(value = "seleniumguide08102022")
+@PWA(name = "Selenium Guide 08102022", shortName = "Selenium Guide 08102022", offlineResources = {})
 @NpmPackage(value = "line-awesome", version = "1.3.0")
+@NpmPackage(value = "@vaadin-component-factory/vcf-nav", version = "1.0.6")
 public class Application extends SpringBootServletInitializer implements AppShellConfigurator {
 
     public static void main(String[] args) {

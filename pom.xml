@@ -2,17 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!-- Project from https://start.vaadin.com/project/f18d3db0-0921-4bf1-858c-7fbf5b2c3e3d -->
+    <!-- Project from https://start.vaadin.com/project/8a7fe48d-a492-4e88-95ec-07aaeeb2dd6f -->
     <groupId>com.example.application</groupId>
-    <artifactId>vaadinseleniumguide</artifactId>
-    <name>Vaadin Selenium Guide</name>
+    <artifactId>seleniumguide08102022</artifactId>
+    <name>Selenium Guide 08102022</name>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <properties>
         <java.version>17</java.version>
-        <vaadin.version>23.1.2</vaadin.version>
-        <selenium.version>4.1.2</selenium.version>
+        <vaadin.version>23.1.6</vaadin.version>
+        <selenium.version>4.2.1</selenium.version>
     </properties>
 
     <parent>
@@ -139,14 +139,13 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.2.2</version>
+            <version>5.2.3</version>
             <scope>test</scope>
         </dependency>
         <!-- Selenium Library -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.3.0</version>
         </dependency>
     </dependencies>
 
@@ -159,6 +158,7 @@
                 <!-- Clean build and startup time for Vaadin apps sometimes may exceed
                      the default Spring Boot's 30sec timeout.  -->
                 <configuration>
+                    <jvmArguments>-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5985</jvmArguments>
                     <wait>500</wait>
                     <maxAttempts>240</maxAttempts>
                 </configuration>
